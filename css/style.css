@@ -1,0 +1,240 @@
+/* ===== Сброс и базовые настройки ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== Кнопки ===== */
+.btn {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+.btn:hover {
+    background: #2563eb;
+}
+.btn-light {
+    background: white;
+    color: #1e293b;
+}
+.btn-light:hover {
+    background: #f1f5f9;
+}
+
+/* ===== 1. Hero (Первый экран) ===== */
+.hero {
+    /* Вместо градиента — фоновое изображение */
+    background: url('../images/hero-bg.jpg') center calc(50% - 140px) / cover no-repeat;
+    /* Тёмная подложка поверх картинки, чтобы текст читался */
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+/* Затемнение фона — этот слой делает картинку темнее */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6); /* Регулируйте последнее число: 0 — прозрачно, 1 — совсем темно */
+    z-index: 0;
+}
+
+/* Поднимаем контент над затемнением */
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.hero .subtitle {
+    font-size: 18px;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+/* ===== 2. Services (Услуги) ===== */
+.services {
+    padding: 80px 20px;
+    text-align: center;
+}
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+.cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 32px 24px;
+    flex: 1 1 280px;
+    max-width: 320px;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+.card h3 {
+    margin-bottom: 8px;
+}
+
+/* ===== 3. About (О себе) ===== */
+.about {
+    padding: 80px 20px;
+    background: #f8fafc;
+}
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+.about-text {
+    flex: 1 1 300px;
+}
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.about-text p {
+    margin-bottom: 16px;
+    color: #475569;
+}
+.about-image {
+    flex: 0 0 300px;
+}
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* ===== 4. CTA (Призыв) ===== */
+.cta {
+    background: url('../images/dream_track.jpg') center calc(50% + 320px) / cover no-repeat;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 5. Contact (Контакты) ===== */
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+.contact h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+.contact-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contact-item {
+    background: #f1f5f9;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #1e293b;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-item:hover {
+    background: #e2e8f0;
+}
+.contact-icon {
+    font-size: 20px;
+}
+
+/* ===== 6. Footer ===== */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 14px;
+}
+
+/* ===== Адаптация под телефоны ===== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero {
+        padding: 60px 20px;
+    }
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        flex: 0 0 auto;
+        max-width: 250px;
+    }
+}
