@@ -50,7 +50,7 @@ a {
 /* ===== 1. Hero (Первый экран) ===== */
 .hero {
     /* Фоновое изображение со смещением в процентах (50% от верха) */
-    background: url('../images/hero-bg.jpg') center 25% / cover no-repeat;
+    background: url('../images/hero-bg.jpg') center 75% / cover no-repeat;
     
     /* Затемнение и позиционирование */
     position: relative;
