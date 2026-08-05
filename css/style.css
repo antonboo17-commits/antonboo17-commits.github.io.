@@ -49,16 +49,28 @@ a {
 
 /* ===== 1. Hero (Первый экран) ===== */
 .hero {
-    /* Вместо градиента — фоновое изображение */
-    background: url('../images/hero-bg.jpg') center calc(50% - 140px) / cover no-repeat;
-    /* Тёмная подложка поверх картинки, чтобы текст читался */
+    /* Фоновое изображение со смещением в процентах (25% от верха) */
+    background: url('../images/hero-bg.jpg') center 25% / cover no-repeat;
+    
+    /* Затемнение и позиционирование */
     position: relative;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    
+    /* Фиксируем пропорции 16:9 (можно изменить на 4:3 или 3:4, если нужно) */
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    
+    /* Убираем вертикальные паддинги — высота теперь задаётся aspect-ratio */
+    padding: 0 20px;
+    
+    /* Центрируем содержимое по вертикали и горизонтали */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Затемнение фона — этот слой делает картинку темнее */
+/* Затемнение остаётся */
 .hero::before {
     content: '';
     position: absolute;
@@ -66,19 +78,26 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.6); /* Регулируйте последнее число: 0 — прозрачно, 1 — совсем темно */
+    background: rgba(15, 23, 42, 0.6);
     z-index: 0;
 }
 
-/* Поднимаем контент над затемнением */
+/* Контейнер с текстом должен быть над затемнением */
 .hero .container {
     position: relative;
     z-index: 1;
 }
 
+/* Заголовок адаптивный */
 .hero h1 {
     font-size: 48px;
     margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
 }
 
 .hero .subtitle {
