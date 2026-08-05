@@ -28,23 +28,34 @@ a {
 /* ===== Кнопки ===== */
 .btn {
     display: inline-block;
-    background: #3b82f6;
-    color: white;
+    background: rgba(255, 255, 255, 0.08);    /* полупрозрачный белый */
+    backdrop-filter: blur(2px);              /* размытие фона */
+    -webkit-backdrop-filter: blur(10px);      /* то же для Safari */
+    color: white;                             /* белый текст */
     padding: 14px 32px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 16px;
-    transition: background 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* тонкая белая рамка */
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
 }
+
 .btn:hover {
-    background: #2563eb;
+    background: rgba(255, 255, 255, 0.25);   /* при наведении чуть плотнее */
+    border-color: rgba(255, 255, 255, 0.5);  /* рамка ярче */
 }
 .btn-light {
-    background: white;
-    color: #1e293b;
+    background: rgba(255, 255, 255, 0.08);   /* очень прозрачная, но заметная */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .btn-light:hover {
-    background: #f1f5f9;
+    background: rgba(255, 255, 255, 0.25);   /* при наведении чуть плотнее */
+    border-color: rgba(255, 255, 255, 0.5);  /* рамка ярче */
 }
 
 /* ===== 1. Hero (Первый экран) ===== */
