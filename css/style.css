@@ -50,7 +50,7 @@ a {
 /* ===== 1. Hero (Первый экран) ===== */
 .hero {
     /* Вместо градиента — фоновое изображение */
-    background: url('../images/hero-bg.jpg') center calc(50% - 140px) / cover no-repeat;
+    background: url('../images/hero-bg.jpg') center calc(50% + 140px) / cover no-repeat;
     /* Тёмная подложка поверх картинки, чтобы текст читался */
     position: relative;
     color: white;
@@ -156,7 +156,7 @@ a {
 
 /* ===== 4. CTA (Призыв) ===== */
 .cta {
-    background: url('../images/dream_track.jpg') center calc(50% + 320px) / cover no-repeat;
+    background: url('../images/dream_track.jpg') center calc(50% + 0px) / cover no-repeat;
     position: relative;
     color: white;
     text-align: center;
