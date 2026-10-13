@@ -1,251 +1,424 @@
-/* ===== Сброс и базовые настройки ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* SMGRAPHICS — стиль в духе гоночного графического кита:
+   глубокий синий, белая «пластиковая» основа, жёлтый цвет номерной таблички,
+   диагональные полосы и наклонная типографика. */
+
+:root {
+    --ink: #0A1033;          /* тёмно-синий, как тени на пластике */
+    --ink-2: #121A47;        /* чуть светлее для слоёв */
+    --race: #1F35E6;         /* заводской синий */
+    --plate: #F3F5FA;        /* холодный белый */
+    --hivis: #FFD60A;        /* жёлтый номерной таблички */
+    --steel: #9AA3C7;        /* сине-серый для второстепенного текста */
+    --text: #1A2147;         /* текст на светлом фоне */
+    --muted: #4A5378;
+    --line-dark: rgba(255, 255, 255, 0.14);
+
+    --font-display: 'Unbounded', 'Arial Black', Impact, sans-serif;
+    --font-body: 'Golos Text', 'Segoe UI', Roboto, Arial, sans-serif;
+
+    --slant: 6vw;            /* высота диагонального среза между блоками */
+    --gutter: clamp(16px, 4vw, 40px);
+    color-scheme: dark;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Inter', sans-serif;
-    color: #1e293b;
+    font-family: var(--font-body);
+    font-size: 17px;
     line-height: 1.6;
+    color: var(--plate);
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    text-wrap: balance;
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-inline: var(--gutter);
 }
 
-h1, h2, h3 {
-    font-weight: 700;
+.visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-a {
-    text-decoration: none;
+:focus-visible { outline: 3px solid var(--hivis); outline-offset: 3px; }
+
+/* ===== Логотип ===== */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+
+.logo-mark {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--ink);
+    background: var(--hivis);
+    padding: 6px 14px 6px 12px;
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+    line-height: 1;
 }
+
+.logo-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-text small {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--steel);
+}
+
+/* ===== Навигация ===== */
+.nav {
+    position: absolute;
+    top: env(safe-area-inset-top, 0px);
+    left: 0; right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px var(--gutter);
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 15px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--hivis);
+}
+.nav-link:hover { color: var(--hivis); }
 
 /* ===== Кнопки ===== */
 .btn {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.08);    /* полупрозрачный белый */
-    backdrop-filter: blur(2px);              /* размытие фона */
-    -webkit-backdrop-filter: blur(10px);      /* то же для Safari */
-    color: white;                             /* белый текст */
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* тонкая белая рамка */
-    transition: background 0.2s, border-color 0.2s;
-    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 18px 34px;
+    transition: background-color 0.15s, color 0.15s;
 }
 
-.btn:hover {
-    background: rgba(255, 255, 255, 0.25);   /* при наведении чуть плотнее */
-    border-color: rgba(255, 255, 255, 0.5);  /* рамка ярче */
+.btn-primary {
+    background: var(--hivis);
+    color: var(--ink);
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
 }
-.btn-light {
-    background: rgba(255, 255, 255, 0.08);   /* очень прозрачная, но заметная */
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(10px);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
+.btn-primary:hover { background: #FFFFFF; }
+.btn-primary:focus-visible { outline: none; background: #FFFFFF; text-decoration: underline; }
 
-.btn-light:hover {
-    background: rgba(255, 255, 255, 0.25);   /* при наведении чуть плотнее */
-    border-color: rgba(255, 255, 255, 0.5);  /* рамка ярче */
+.btn-ghost {
+    padding-inline: 8px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
 }
+.btn-ghost:hover { color: var(--hivis); }
 
-/* ===== 1. Hero (Первый экран) ===== */
+/* ===== 1. Первый экран ===== */
 .hero {
-    /* Вместо градиента — фоновое изображение */
-    background: url('../images/hero-bg.jpg') center calc(25%) / cover no-repeat;
-    /* Тёмная подложка поверх картинки, чтобы текст читался */
     position: relative;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-/* Затемнение фона — этот слой делает картинку темнее */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.6); /* Регулируйте последнее число: 0 — прозрачно, 1 — совсем темно */
-    z-index: 0;
-}
-
-/* Поднимаем контент над затемнением */
-.hero .container {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 16px;
-}
-
-.hero .subtitle {
-    font-size: 18px;
-    color: #cbd5e1;
-    max-width: 600px;
-    margin: 0 auto 32px;
-}
-
-/* ===== 2. Services (Услуги) ===== */
-.services {
-    padding: 80px 20px;
-    text-align: center;
-}
-.services h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-}
-.cards {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 32px 24px;
-    flex: 1 1 280px;
-    max-width: 320px;
-    transition: transform 0.2s;
-}
-.card:hover {
-    transform: translateY(-4px);
-}
-.card-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
-}
-.card h3 {
-    margin-bottom: 8px;
-}
-
-/* ===== 3. About (О себе) ===== */
-.about {
-    padding: 80px 20px;
-    background: #f8fafc;
-}
-.about-flex {
+    z-index: 2;
+    min-height: min(820px, 92vh);
     display: flex;
     align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
+    padding: 130px var(--gutter) calc(var(--slant) + 90px);
+    background:
+        linear-gradient(100deg, var(--ink) 0%, rgba(10, 16, 51, 0.88) 34%, rgba(10, 16, 51, 0.35) 64%, rgba(10, 16, 51, 0.05) 100%),
+        url('../images/hero-bg.jpg') 70% 30% / cover no-repeat;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--slant)), 0 100%);
+    overflow: hidden;
 }
-.about-text {
-    flex: 1 1 300px;
-}
-.about-text h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-.about-text p {
-    margin-bottom: 16px;
-    color: #475569;
-}
-.about-image {
-    flex: 0 0 300px;
-}
-.about-image img {
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    border-radius: 12px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-weight: 900;
+    font-size: clamp(2.3rem, 6.4vw, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    max-width: 11ch;
+    transform: skewX(-7deg);
+    transform-origin: left bottom;
+}
+
+.hero-sub {
+    margin-top: 28px;
+    max-width: 34ch;
+    font-size: clamp(17px, 1.6vw, 20px);
+    color: #D5DAEE;
+}
+
+.hero-actions {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 24px;
+}
+
+/* Диагональные полосы, как на графике пластика */
+.stripes {
+    position: absolute;
+    right: -6%;
+    bottom: calc(var(--slant) + 26px);
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transform: rotate(-6deg);
+    z-index: 1;
+    pointer-events: none;
+}
+.stripes span {
     display: block;
+    height: 16px;
+    transform: skewX(-40deg);
+    transform-origin: right;
+    animation: stripe-in 0.9s cubic-bezier(.2, .8, .2, 1) both;
+}
+.stripes span:nth-child(1) { background: var(--plate); width: 100%; }
+.stripes span:nth-child(2) { background: var(--hivis); width: 78%; margin-left: auto; height: 10px; animation-delay: 0.12s; }
+.stripes span:nth-child(3) { background: var(--race); width: 56%; margin-left: auto; height: 22px; animation-delay: 0.24s; }
+
+@keyframes stripe-in {
+    from { transform: skewX(-40deg) scaleX(0); }
+    to   { transform: skewX(-40deg) scaleX(1); }
 }
 
-/* ===== 4. CTA (Призыв) ===== */
-.cta {
-    background: url('../images/dream_track.jpg') center calc(75%) / cover no-repeat;
-    position: relative;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
-.cta .container {
+/* ===== 2. Что мы предлагаем ===== */
+.offer {
     position: relative;
     z-index: 1;
+    background: var(--race);
+    margin-top: calc(var(--slant) * -1);
+    padding-block: calc(var(--slant) + 64px) 80px;
 }
 
-/* ===== 5. Contact (Контакты) ===== */
-.contact {
-    padding: 80px 20px;
-    text-align: center;
+.offer-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.contact h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
+
+.offer-list li {
+    padding: 8px 36px;
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
 }
-.contact-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+.offer-list li:first-child { border-left: 0; padding-left: 0; }
+
+.offer-list svg {
+    width: 40px; height: 40px;
+    fill: none;
+    stroke: var(--hivis);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 22px;
 }
-.contact-item {
-    background: #f1f5f9;
-    padding: 16px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    color: #1e293b;
-    transition: background 0.2s;
-    display: flex;
+
+.offer-list h3 {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.offer-list p { color: #DCE1FF; max-width: 30ch; }
+
+/* ===== 3. О себе ===== */
+.about {
+    background: var(--plate);
+    color: var(--text);
+    padding-block: 110px 120px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(40px, 7vw, 96px);
     align-items: center;
-    gap: 8px;
-}
-.contact-item:hover {
-    background: #e2e8f0;
-}
-.contact-icon {
-    font-size: 20px;
 }
 
-/* ===== 6. Footer ===== */
-footer {
-    background: #0f172a;
-    color: #94a3b8;
-    text-align: center;
-    padding: 24px 20px;
+/* Фото как наклейка: белая кромка, лёгкий поворот, жёсткая синяя тень */
+.about-photo {
+    background: #FFFFFF;
+    padding: 12px;
+    transform: rotate(-3deg);
+    box-shadow: 16px 16px 0 var(--race);
+    max-width: 420px;
+    width: 100%;
+    justify-self: center;
+}
+.about-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+
+.about-text { min-width: 0; }
+
+.about-text h2 {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    color: var(--ink);
+}
+
+.about-text p { max-width: 58ch; color: var(--muted); }
+.about-text p + p { margin-top: 16px; }
+
+.about-text .about-note {
+    margin-top: 28px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    line-height: 1.3;
+    color: var(--race);
+}
+
+/* ===== 4. Призыв к действию ===== */
+.cta {
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(10, 16, 51, 0.92) 0%, rgba(10, 16, 51, 0.7) 45%, rgba(10, 16, 51, 0.25) 100%),
+        url('../images/dream_track.jpg') center 72% / cover no-repeat;
+    clip-path: polygon(0 var(--slant), 100% 0, 100% 100%, 0 100%);
+    margin-top: calc(var(--slant) * -1);
+    padding-block: calc(var(--slant) + 90px) 110px;
+}
+
+.cta-inner h2 {
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    letter-spacing: -0.02em;
+    transform: skewX(-7deg);
+    transform-origin: left bottom;
+}
+
+.cta-inner p {
+    margin: 22px 0 36px;
+    max-width: 46ch;
+    color: #D5DAEE;
+}
+
+/* ===== 5. Контакты ===== */
+.contact { padding-block: 100px 90px; }
+
+.contact h2 {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+    letter-spacing: -0.015em;
+    margin-bottom: 36px;
+}
+
+.contact-list { border-top: 1px solid var(--line-dark); }
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 8px;
+    border-bottom: 1px solid var(--line-dark);
+    transition: background-color 0.15s, padding 0.2s;
+}
+
+.contact-row svg {
+    width: 26px; height: 26px;
+    fill: none;
+    stroke: var(--hivis);
+    stroke-width: 1.8;
+    stroke-linejoin: round;
+}
+.contact-row svg.fill { fill: var(--hivis); stroke: none; }
+
+.contact-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+}
+
+.contact-value {
+    color: var(--steel);
+    font-size: 16px;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.contact-row:hover { background: var(--race); padding-inline: 20px; }
+.contact-row:hover .contact-value { color: var(--plate); }
+
+/* ===== 6. Подвал ===== */
+.footer {
+    border-top: 1px solid var(--line-dark);
+    padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px));
     font-size: 14px;
+    color: var(--steel);
 }
 
-/* ===== Адаптация под телефоны ===== */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
+.footer-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.logo-mark-small { font-size: 13px; padding: 5px 11px 5px 9px; }
+
+/* ===== Телефоны и планшеты ===== */
+@media (max-width: 860px) {
+    .offer-list { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .offer-list li,
+    .offer-list li:first-child {
+        border-left: 0;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.28);
     }
+    .offer-list li:first-child { border-top: 0; padding-top: 0; }
+
+    .about-grid { grid-template-columns: minmax(0, 1fr); }
+    .about-photo { max-width: 320px; }
+}
+
+@media (max-width: 600px) {
+    :root { --slant: 10vw; }
+    body { font-size: 16px; }
+    .nav-link { font-size: 14px; }
+    .logo-text small { display: none; }
     .hero {
-        padding: 60px 20px;
+        min-height: 0;
+        padding-top: 120px;
+        background:
+            linear-gradient(180deg, rgba(10, 16, 51, 0.55) 0%, rgba(10, 16, 51, 0.9) 60%, var(--ink) 100%),
+            url('../images/hero-bg.jpg') 62% 30% / cover no-repeat;
     }
-    .about-flex {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-image {
-        flex: 0 0 auto;
-        max-width: 250px;
-    }
+    .stripes { width: 80%; right: -20%; bottom: calc(var(--slant) + 12px); }
+    .btn { padding: 16px 28px; }
+    .contact-row { grid-template-columns: 24px minmax(0, 1fr); row-gap: 4px; }
+    .contact-value { grid-column: 2; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .stripes span { animation: none; }
+    .contact-row, .btn { transition: none; }
 }

@@ -2,68 +2,86 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="google-site-verification" content="A4327wPJ7ZmmYLKpmU4n7rLONOr8wx9N6LQzoZRU234" />
-    <title>SMGFX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="google-site-verification" content="A4327wPJ7ZmmYLKpmU4n7rLONOr8wx9N6LQzoZRU234" />
+    <title>SMGRAPHICS — наклейки для кроссовых мотоциклов</title>
+    <meta name="description" content="Дизайн и изготовление наклеек для кроссовых мотоциклов с 2014 года. Каталог и индивидуальные графические киты.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Подключаем современный шрифт с Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 1. Шапка / Первый экран -->
-    <header class="hero">
-        <div class="container">
-            <h1>SMGRAPHICS</h1>
-            <p class="subtitle">Разрабатываем дизайн и изготавливаем наклейки для кроссовых мотоциклов с 2014 года.</p>
-            <a href="#contact" class="btn">Связаться со мной</a>
+
+    <!-- Навигация -->
+    <nav class="nav">
+        <a href="#top" class="logo" aria-label="SMGRAPHICS, на главную">
+            <span class="logo-mark">SM</span>
+            <span class="logo-text">GRAPHICS<small>с 2014</small></span>
+        </a>
+        <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="nav-link">Написать в Telegram</a>
+    </nav>
+
+    <!-- 1. Первый экран -->
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <h1 class="hero-title">Наклейки для&nbsp;кроссовых мотоциклов</h1>
+            <p class="hero-sub">Разрабатываем дизайн и&nbsp;изготавливаем графические киты с&nbsp;2014&nbsp;года. Для&nbsp;любителей и&nbsp;чемпионов России.</p>
+            <div class="hero-actions">
+                <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="btn btn-primary">Заказать наклейки</a>
+                <a href="#about" class="btn btn-ghost">Узнать о нас</a>
+            </div>
+        </div>
+        <div class="stripes" aria-hidden="true">
+            <span></span><span></span><span></span>
         </div>
     </header>
 
-    <!-- 2. Преимущества / Услуги -->
-    <section class="services">
+    <!-- 2. Что мы предлагаем -->
+    <section class="offer">
         <div class="container">
-            <h2>Что мы предлагаем</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-icon">🎯</div>
+            <h2 class="visually-hidden">Что мы предлагаем</h2>
+            <ul class="offer-list">
+                <li>
+                    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26l4-1 15-15-3-3L7 22l-1 4zM20 9l3 3" /></svg>
                     <h3>Любой дизайн</h3>
-                    <p>Можно выбрать из каталога или заказать индивидуальные наклейки.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
+                    <p>Выберите кит из&nbsp;каталога или&nbsp;закажите индивидуальный под&nbsp;свой номер и&nbsp;цвета.</p>
+                </li>
+                <li>
+                    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 7-4.5 11-10 13-5.5-2-10-6-10-13V8l10-4z" /></svg>
                     <h3>Лучшие материалы</h3>
-                    <p>Используем только качественную пленку с усиленным клеевым слоем.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚡</div>
+                    <p>Только качественная плёнка с&nbsp;усиленным клеевым слоем, которая держится на&nbsp;трассе.</p>
+                </li>
+                <li>
+                    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="17" r="11" /><path d="M16 10v7l5 3M13 3h6" /></svg>
                     <h3>Быстрое изготовление</h3>
-                    <p>От заказа до получения наклеек в среднем проходит 7 дней.</p>
-                </div>
-            </div>
+                    <p>От&nbsp;заказа до&nbsp;получения наклеек в&nbsp;среднем проходит 7&nbsp;дней.</p>
+                </li>
+            </ul>
         </div>
     </section>
 
-    <!-- 3. О себе / О компании -->
-    <section class="about">
-        <div class="container about-flex">
+    <!-- 3. О себе -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <figure class="about-photo">
+                <img src="images/SM.jpg" alt="Основательница SMGRAPHICS у мотоцикла" width="640" height="640" loading="lazy">
+            </figure>
             <div class="about-text">
-                <h2>О себе</h2>
-                <p>Проект появился в 2014 году, после попытки преобразить свою yz125. За это время было испробовано множество вариантов пленки, лекал, ножей для плоттера и прочих производственных мелочей.</p>
-                <p>Сейчас нам доверяют как любители, так и чемпионы России по мотокроссу и эндуро, а наши наклейки используют даже на Мотокроссе Наций.</p>
-            </div>
-            <div class="about-image">
-                <!-- Замените placeholder на своё фото -->
-                <img src="images/SM.jpg" alt="Ваше фото">
+                <h2>Начали с&nbsp;собственной yz125</h2>
+                <p>Проект появился в&nbsp;2014 году, после попытки преобразить свой мотоцикл. За&nbsp;это время мы перепробовали множество плёнок, лекал, ножей для&nbsp;плоттера и&nbsp;прочих производственных мелочей.</p>
+                <p>Сейчас нам доверяют как любители, так и&nbsp;чемпионы России по&nbsp;мотокроссу и&nbsp;эндуро.</p>
+                <p class="about-note">Наши наклейки едут даже на&nbsp;Мотокроссе Наций.</p>
             </div>
         </div>
     </section>
 
     <!-- 4. Призыв к действию -->
     <section class="cta">
-        <div class="container">
+        <div class="container cta-inner">
             <h2>Готовы заказать?</h2>
-            <p>Оставьте заявку на почту или напишите в удобный мессенджер.</p>
-            <a href="#contact" class="btn btn-light">Написать</a>
+            <p>Напишите в&nbsp;Telegram или&nbsp;на&nbsp;почту: модель мотоцикла, номер и&nbsp;пожелания по&nbsp;цветам. Ответим и&nbsp;предложим дизайн.</p>
+            <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="btn btn-primary">Написать в Telegram</a>
         </div>
     </section>
 
@@ -71,32 +89,31 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2>Контакты</h2>
-            <div class="contact-links">
-                <a href="mailto:sbarancheeva@yandex.ru" class="contact-item">
-                    <span class="contact-icon">✉️</span> Почта
+            <div class="contact-list">
+                <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="contact-row">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.230.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.441-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.178.121.13.148.305.163.428.015.123.034.404.019.623z"/></svg>
+                    <span class="contact-name">Telegram</span>
+                    <span class="contact-value">@sm_437</span>
                 </a>
-				<a href="https://t.me/sm_437" target="_blank" class="contact-item">
-				<span class="contact-icon">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.441-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.178.121.13.148.305.163.428.015.123.034.404.019.623z"/>
-        </svg>
-    </span> Telegram
-</a>
-				<a href="https://vk.com/svetlanamx" target="_blank" class="contact-item">
-    <span class="contact-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.684 0H8.316C3.724 0 0 3.724 0 8.316v7.368C0 20.276 3.724 24 8.316 24h7.368C20.276 24 24 20.276 24 15.684V8.316C24 3.724 20.276 0 15.684 0zm3.692 16.368c-.18.34-.44.566-.78.68-.34.113-.79.03-1.35-.25-.56-.28-1.14-.7-1.74-1.26-.46-.44-.88-.94-1.26-1.5-.08-.12-.16-.2-.24-.24-.08-.04-.14-.04-.18-.02-.04.02-.06.08-.06.18v1.78c0 .32-.1.54-.3.66-.2.12-.44.14-.72.06-.28-.08-.6-.22-.96-.42-.36-.2-.72-.42-1.08-.66-.36-.24-.7-.5-1.02-.78-.32-.28-.62-.56-.9-.84-.28-.28-.56-.6-.84-.96-.28-.36-.52-.72-.72-1.08-.2-.36-.34-.68-.42-.96-.08-.28-.06-.52.06-.72.12-.2.34-.3.66-.3h2.1c.28 0 .48.06.6.18.12.12.2.28.24.48.08.36.18.7.3 1.02.12.32.24.6.36.84.12.24.22.42.3.54.08.12.16.2.24.24.08.04.14.04.18 0 .04-.04.06-.12.06-.24V9.6c0-.36-.12-.6-.36-.72-.24-.12-.6-.18-1.08-.18-.24 0-.36-.04-.36-.12 0-.08.02-.16.06-.24.08-.16.28-.32.6-.48.32-.16.76-.24 1.32-.24h1.5c.68 0 1.14.16 1.38.48.24.32.36.8.36 1.44v2.28c0 .12.02.2.06.24.04.04.1.04.18 0 .08-.04.16-.12.24-.24.08-.12.18-.3.3-.54.12-.24.24-.52.36-.84.12-.32.22-.66.3-1.02.04-.2.12-.36.24-.48.12-.12.32-.18.6-.18h2.1c.32 0 .54.1.66.3.12.2.14.44.06.72z"/>
-        </svg>
-    </span> ВКонтакте
-</a>
+                <a href="https://vk.com/svetlanamx" target="_blank" rel="noopener" class="contact-row">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12.8 17.5c-5.5 0-8.6-3.8-8.7-10h2.7c.1 4.6 2.1 6.5 3.7 6.9V7.5h2.6v3.9c1.6-.2 3.2-2 3.8-3.9h2.6c-.4 2.4-2.2 4.2-3.5 4.9 1.3.6 3.300 2.2 4.1 5.1h-2.8c-.6-1.9-2.1-3.4-4.2-3.6v3.6h-.3z"/></svg>
+                    <span class="contact-name">ВКонтакте</span>
+                    <span class="contact-value">vk.com/svetlanamx</span>
+                </a>
+                <a href="mailto:sbarancheeva@yandex.ru" class="contact-row">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1" /><path d="M3 6l9 7 9-7" /></svg>
+                    <span class="contact-name">Почта</span>
+                    <span class="contact-value">sbarancheeva@yandex.ru</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- 6. Подвал -->
-    <footer>
-        <div class="container">
-            <p>Все права защищены © 2026 SMGRAPHICS</p>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span class="logo-mark logo-mark-small">SM</span>
+            <p>© 2014–2026 SMGRAPHICS. Наклейки для кроссовых мотоциклов.</p>
         </div>
     </footer>
 
