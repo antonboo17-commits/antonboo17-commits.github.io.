@@ -19,7 +19,7 @@
             <span class="logo-mark">SM</span>
             <span class="logo-text">GRAPHICS<small>с 2014</small></span>
         </a>
-        <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="nav-link">Написать в Telegram</a>
+        <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="nav-link"><span class="long">Написать в </span>Telegram</a>
     </nav>
 
     <!-- 1. Первый экран -->
@@ -116,6 +116,29 @@
             <p>© 2014–2026 SMGRAPHICS. Наклейки для кроссовых мотоциклов.</p>
         </div>
     </footer>
+
+    <!-- Нижняя панель для телефонов -->
+    <div class="mobile-bar" id="mobile-bar">
+        <a href="https://t.me/sm_437" target="_blank" rel="noopener" class="btn btn-primary" tabindex="-1">Заказать наклейки в Telegram</a>
+    </div>
+
+    <script>
+        // Панель видна, когда первый экран уже прокручен, и прячется у блока контактов
+        (function () {
+            var bar = document.getElementById('mobile-bar');
+            var hero = document.querySelector('.hero');
+            var contact = document.getElementById('contact');
+            if (!bar || !hero || !('IntersectionObserver' in window)) return;
+            var heroVisible = true, contactVisible = false;
+            function update() {
+                var show = !heroVisible && !contactVisible;
+                bar.classList.toggle('is-visible', show);
+                bar.querySelector('a').tabIndex = show ? 0 : -1;
+            }
+            new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; update(); }).observe(hero);
+            new IntersectionObserver(function (e) { contactVisible = e[0].isIntersecting; update(); }).observe(contact);
+        })();
+    </script>
 
 </body>
 </html>

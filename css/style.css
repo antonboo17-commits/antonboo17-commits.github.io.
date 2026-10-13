@@ -399,26 +399,98 @@ h1, h2, h3 {
     .about-photo { max-width: 320px; }
 }
 
+/* Нижняя панель «Написать» — только на телефонах */
+.mobile-bar { display: none; }
+
 @media (max-width: 600px) {
-    :root { --slant: 10vw; }
+    :root { --slant: 9vw; }
     body { font-size: 16px; }
-    .nav-link { font-size: 14px; }
+
+    /* Навигация */
+    .nav { padding-block: 16px; }
+    .logo-mark { font-size: 16px; }
+    .logo-text { font-size: 13px; }
     .logo-text small { display: none; }
+    .nav-link { font-size: 14px; }
+    .nav-link .long { display: none; }
+
+    /* Первый экран */
     .hero {
         min-height: 0;
-        padding-top: 120px;
+        padding-top: 104px;
+        padding-bottom: calc(var(--slant) + 76px);
         background:
-            linear-gradient(180deg, rgba(10, 16, 51, 0.55) 0%, rgba(10, 16, 51, 0.9) 60%, var(--ink) 100%),
+            linear-gradient(180deg, rgba(10, 16, 51, 0.5) 0%, rgba(10, 16, 51, 0.88) 55%, var(--ink) 100%),
             url('../images/hero-bg.jpg') 62% 30% / cover no-repeat;
     }
-    .stripes { width: 80%; right: -20%; bottom: calc(var(--slant) + 12px); }
-    .btn { padding: 16px 28px; }
-    .contact-row { grid-template-columns: 24px minmax(0, 1fr); row-gap: 4px; }
-    .contact-value { grid-column: 2; text-align: left; }
+    .hero-title { font-size: clamp(2rem, 10vw, 2.6rem); }
+    .hero-sub { margin-top: 20px; }
+    .hero-actions { margin-top: 30px; flex-direction: column; align-items: stretch; gap: 14px; }
+    .hero-actions .btn { text-align: center; }
+    .hero-actions .btn-ghost { align-self: center; padding: 6px 8px; }
+    .stripes { width: 78%; right: -18%; bottom: calc(var(--slant) + 14px); gap: 7px; }
+    .stripes span:nth-child(1) { height: 11px; }
+    .stripes span:nth-child(2) { height: 7px; }
+    .stripes span:nth-child(3) { height: 15px; }
+
+    .btn { padding: 17px 28px; }
+
+    /* Предложение: иконка слева от заголовка, компактнее */
+    .offer { padding-block: calc(var(--slant) + 40px) 56px; }
+    .offer-list li,
+    .offer-list li:first-child {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 16px;
+        padding: 22px 0;
+    }
+    .offer-list li:first-child { padding-top: 0; }
+    .offer-list li:last-child { padding-bottom: 0; }
+    .offer-list svg { width: 32px; height: 32px; margin: 0; grid-row: span 2; }
+    .offer-list h3 { font-size: 18px; margin-bottom: 6px; }
+
+    /* О себе */
+    .about { padding-block: 64px calc(var(--slant) + 64px); }
+    .about-grid { gap: 44px; }
+    .about-photo { max-width: 240px; padding: 8px; box-shadow: 10px 10px 0 var(--race); }
+    .about-text h2 { margin-bottom: 18px; }
+    .about-text .about-note { margin-top: 22px; }
+
+    /* Призыв */
+    .cta { padding-block: calc(var(--slant) + 56px) 72px; }
+    .cta-inner p { margin: 16px 0 28px; }
+    .cta-inner .btn { display: block; text-align: center; }
+
+    /* Контакты */
+    .contact { padding-block: 64px 48px; }
+    .contact h2 { margin-bottom: 24px; }
+    .contact-row { grid-template-columns: 24px minmax(0, 1fr); gap: 2px 16px; padding: 18px 4px; }
+    .contact-row svg { grid-row: span 2; width: 24px; height: 24px; }
+    .contact-value { grid-column: 2; text-align: left; font-size: 15px; }
+    .contact-row:hover { padding-inline: 12px; }
+
+    .footer { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+
+    /* Нижняя панель появляется, когда первый экран прокручен */
+    .mobile-bar {
+        display: block;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 20;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: rgba(10, 16, 51, 0.92);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid var(--line-dark);
+        transform: translateY(110%);
+        transition: transform 0.25s ease;
+    }
+    .mobile-bar.is-visible { transform: none; }
+    .mobile-bar .btn { display: block; text-align: center; padding-block: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .stripes span { animation: none; }
-    .contact-row, .btn { transition: none; }
+    .contact-row, .btn, .mobile-bar { transition: none; }
 }
