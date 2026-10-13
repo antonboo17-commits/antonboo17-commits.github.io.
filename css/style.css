@@ -487,7 +487,13 @@ h1, h2, h3 {
     .about-text .about-note { margin-top: 22px; }
 
     /* Призыв */
-    .cta { padding-block: calc(var(--slant) + 56px) 72px; }
+    /* На телефоне: текст сверху на тёмном небе, трасса видна под кнопкой */
+    .cta {
+        padding-block: calc(var(--slant) + 48px) 190px;
+        background:
+            linear-gradient(180deg, rgba(22, 24, 27, 0.9) 0%, rgba(22, 24, 27, 0.72) 55%, rgba(22, 24, 27, 0.1) 82%, rgba(22, 24, 27, 0) 100%),
+            url('../images/dream_track.jpg') 50% 100% / auto 135% no-repeat;
+    }
     .cta-inner p { margin: 16px 0 28px; }
     .cta-inner .btn { display: block; text-align: center; }
 
