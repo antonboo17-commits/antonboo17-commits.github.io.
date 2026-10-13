@@ -1,16 +1,16 @@
 /* SMGRAPHICS — стиль в духе гоночного графического кита:
-   глубокий синий, белая «пластиковая» основа, ледяной голубой акцент,
+   тёмно-зелёный, белая «пластиковая» основа, лаймовый акцент,
    диагональные полосы и наклонная типографика. */
 
 :root {
-    --ink: #0A1033;          /* тёмно-синий, как тени на пластике */
-    --ink-2: #121A47;        /* чуть светлее для слоёв */
-    --race: #1F35E6;         /* заводской синий */
-    --plate: #F3F5FA;        /* холодный белый */
-    --hivis: #4FE3FF;        /* ледяной голубой акцент */
-    --steel: #9AA3C7;        /* сине-серый для второстепенного текста */
-    --text: #1A2147;         /* текст на светлом фоне */
-    --muted: #4A5378;
+    --ink: #0B1A12;          /* очень тёмный зелёный */
+    --ink-2: #102618;        /* чуть светлее для слоёв */
+    --race: #17663A;         /* гоночный зелёный */
+    --plate: #F1F5EF;        /* белый с зелёным оттенком */
+    --hivis: #8BE33A;        /* лаймовый акцент */
+    --steel: #9DB3A4;        /* серо-зелёный для второстепенного текста */
+    --text: #142A1C;         /* текст на светлом фоне */
+    --muted: #4B5E51;
     --line-dark: rgba(255, 255, 255, 0.14);
 
     --font-display: 'Unbounded', 'Arial Black', Impact, sans-serif;
@@ -147,7 +147,7 @@ h1, h2, h3 {
     align-items: center;
     padding: 130px var(--gutter) calc(var(--slant) + 90px);
     background:
-        linear-gradient(100deg, var(--ink) 0%, rgba(10, 16, 51, 0.88) 34%, rgba(10, 16, 51, 0.35) 64%, rgba(10, 16, 51, 0.05) 100%),
+        linear-gradient(100deg, var(--ink) 0%, rgba(11, 26, 18, 0.88) 34%, rgba(11, 26, 18, 0.35) 64%, rgba(11, 26, 18, 0.05) 100%),
         url('../images/hero-bg.jpg') 70% 30% / cover no-repeat;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--slant)), 0 100%);
     overflow: hidden;
@@ -175,7 +175,7 @@ h1, h2, h3 {
     margin-top: 28px;
     max-width: 34ch;
     font-size: clamp(17px, 1.6vw, 20px);
-    color: #D5DAEE;
+    color: #D6E3DA;
 }
 
 .hero-actions {
@@ -251,7 +251,7 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
-.offer-list p { color: #DCE1FF; max-width: 30ch; }
+.offer-list p { color: #DDEBE1; max-width: 30ch; }
 
 /* ===== 3. О себе ===== */
 .about {
@@ -305,7 +305,7 @@ h1, h2, h3 {
 .cta {
     position: relative;
     background:
-        linear-gradient(90deg, rgba(10, 16, 51, 0.92) 0%, rgba(10, 16, 51, 0.7) 45%, rgba(10, 16, 51, 0.25) 100%),
+        linear-gradient(90deg, rgba(11, 26, 18, 0.92) 0%, rgba(11, 26, 18, 0.7) 45%, rgba(11, 26, 18, 0.25) 100%),
         url('../images/dream_track.jpg') center 72% / cover no-repeat;
     clip-path: polygon(0 var(--slant), 100% 0, 100% 100%, 0 100%);
     margin-top: calc(var(--slant) * -1);
@@ -323,7 +323,7 @@ h1, h2, h3 {
 .cta-inner p {
     margin: 22px 0 36px;
     max-width: 46ch;
-    color: #D5DAEE;
+    color: #D6E3DA;
 }
 
 /* ===== 5. Контакты ===== */
@@ -420,7 +420,7 @@ h1, h2, h3 {
         padding-top: 104px;
         padding-bottom: calc(var(--slant) + 76px);
         background:
-            linear-gradient(180deg, rgba(10, 16, 51, 0.5) 0%, rgba(10, 16, 51, 0.88) 55%, var(--ink) 100%),
+            linear-gradient(180deg, rgba(11, 26, 18, 0.5) 0%, rgba(11, 26, 18, 0.88) 55%, var(--ink) 100%),
             url('../images/hero-bg.jpg') 62% 30% / cover no-repeat;
     }
     .hero-title { font-size: clamp(2rem, 10vw, 2.6rem); }
@@ -478,7 +478,7 @@ h1, h2, h3 {
         left: 0; right: 0; bottom: 0;
         z-index: 20;
         padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-        background: rgba(10, 16, 51, 0.92);
+        background: rgba(11, 26, 18, 0.92);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         border-top: 1px solid var(--line-dark);
