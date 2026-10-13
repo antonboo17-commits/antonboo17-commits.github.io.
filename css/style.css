@@ -60,36 +60,10 @@ h1, h2, h3 {
 :focus-visible { outline: 3px solid var(--hivis); outline-offset: 3px; }
 
 /* ===== Логотип ===== */
-.logo { display: inline-flex; align-items: center; gap: 10px; }
-
-.logo-mark {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 18px;
-    color: var(--ink);
-    background: var(--hivis);
-    padding: 6px 14px 6px 12px;
-    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
-    line-height: 1;
-}
-
-.logo-text {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 0.06em;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-}
-
-.logo-text small {
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.02em;
-    color: var(--steel);
-}
+.logo { display: inline-flex; align-items: center; color: #FFFFFF; }
+.logo:hover { color: var(--hivis); }
+.logo-svg { display: block; height: 66px; width: auto; aspect-ratio: 720 / 262; }
+.logo-svg-small { height: 40px; color: var(--steel); }
 
 /* ===== Навигация ===== */
 .nav {
@@ -274,7 +248,7 @@ h1, h2, h3 {
     position: relative;
     width: 100%;
     max-width: 420px;
-    aspect-ratio: 1 / 0.92;
+    aspect-ratio: 1 / 0.86;
     justify-self: center;
 }
 
@@ -287,8 +261,8 @@ h1, h2, h3 {
 }
 .about-photo img { width: 100%; height: auto; }
 
-.about-photo-front { right: 0; top: 0; transform: rotate(4deg); z-index: 2; width: 56%; }
-.about-photo-back  { left: 0; bottom: 0; transform: rotate(-4deg); z-index: 1; width: 66%; }
+.about-photo-front { left: 0; top: 0; transform: rotate(-4deg); z-index: 2; width: 54%; }
+.about-photo-back  { right: 0; bottom: 0; transform: rotate(4deg); z-index: 1; width: 76%; }
 
 /* Полоска скотча сверху каждой карточки */
 .about-photo::before {
@@ -301,7 +275,7 @@ h1, h2, h3 {
     background: color-mix(in srgb, var(--hivis) 62%, transparent);
     transform: translateX(-50%) rotate(-3deg);
 }
-.about-photo-back::before { left: 40%; transform: translateX(-50%) rotate(3deg); }
+.about-photo-back::before { left: 62%; transform: translateX(-50%) rotate(3deg); }
 
 .about-text { min-width: 0; }
 
@@ -406,7 +380,6 @@ h1, h2, h3 {
 }
 
 .footer-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.logo-mark-small { font-size: 13px; padding: 5px 11px 5px 9px; }
 
 /* ===== Телефоны и планшеты ===== */
 @media (max-width: 860px) {
@@ -432,9 +405,7 @@ h1, h2, h3 {
 
     /* Навигация */
     .nav { padding-block: 16px; }
-    .logo-mark { font-size: 16px; }
-    .logo-text { font-size: 13px; }
-    .logo-text small { display: none; }
+    .logo-svg { height: 48px; }
     .nav-link { font-size: 14px; }
     .nav-link .long { display: none; }
 
