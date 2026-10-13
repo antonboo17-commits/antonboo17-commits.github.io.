@@ -1,16 +1,16 @@
 /* SMGRAPHICS — стиль в духе гоночного графического кита:
-   тёмно-зелёный, белая «пластиковая» основа, лаймовый акцент,
+   графит, белая «пластиковая» основа, кислотно-лаймовый акцент,
    диагональные полосы и наклонная типографика. */
 
 :root {
-    --ink: #0B1A12;          /* очень тёмный зелёный */
-    --ink-2: #102618;        /* чуть светлее для слоёв */
-    --race: #17663A;         /* гоночный зелёный */
-    --plate: #F1F5EF;        /* белый с зелёным оттенком */
+    --ink: #16181B;          /* графит */
+    --ink-2: #1F2226;        /* чуть светлее для слоёв */
+    --race: #26292E;         /* светлый графит для полосы преимуществ */
+    --plate: #F3F4F2;        /* светлый нейтральный */
     --hivis: #8BE33A;        /* лаймовый акцент */
-    --steel: #9DB3A4;        /* серо-зелёный для второстепенного текста */
-    --text: #142A1C;         /* текст на светлом фоне */
-    --muted: #4B5E51;
+    --steel: #A2A7AE;        /* серый для второстепенного текста */
+    --text: #1B1D21;         /* текст на светлом фоне */
+    --muted: #555A62;
     --line-dark: rgba(255, 255, 255, 0.14);
 
     --font-display: 'Unbounded', 'Arial Black', Impact, sans-serif;
@@ -147,7 +147,7 @@ h1, h2, h3 {
     align-items: center;
     padding: 130px var(--gutter) calc(var(--slant) + 90px);
     background:
-        linear-gradient(100deg, var(--ink) 0%, rgba(11, 26, 18, 0.88) 34%, rgba(11, 26, 18, 0.35) 64%, rgba(11, 26, 18, 0.05) 100%),
+        linear-gradient(100deg, var(--ink) 0%, rgba(22, 24, 27, 0.88) 34%, rgba(22, 24, 27, 0.35) 64%, rgba(22, 24, 27, 0.05) 100%),
         url('../images/hero-bg.jpg') 70% 30% / cover no-repeat;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--slant)), 0 100%);
     overflow: hidden;
@@ -175,7 +175,7 @@ h1, h2, h3 {
     margin-top: 28px;
     max-width: 34ch;
     font-size: clamp(17px, 1.6vw, 20px);
-    color: #D6E3DA;
+    color: #DADDE2;
 }
 
 .hero-actions {
@@ -220,6 +220,7 @@ h1, h2, h3 {
     position: relative;
     z-index: 1;
     background: var(--race);
+    border-bottom: 4px solid var(--hivis);
     margin-top: calc(var(--slant) * -1);
     padding-block: calc(var(--slant) + 64px) 80px;
 }
@@ -251,7 +252,7 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
-.offer-list p { color: #DDEBE1; max-width: 30ch; }
+.offer-list p { color: #DCDFE3; max-width: 30ch; }
 
 /* ===== 3. О себе ===== */
 .about {
@@ -272,7 +273,7 @@ h1, h2, h3 {
     background: #FFFFFF;
     padding: 12px;
     transform: rotate(-3deg);
-    box-shadow: 16px 16px 0 var(--race);
+    box-shadow: 16px 16px 0 var(--hivis);
     max-width: 420px;
     width: 100%;
     justify-self: center;
@@ -305,7 +306,7 @@ h1, h2, h3 {
 .cta {
     position: relative;
     background:
-        linear-gradient(90deg, rgba(11, 26, 18, 0.92) 0%, rgba(11, 26, 18, 0.7) 45%, rgba(11, 26, 18, 0.25) 100%),
+        linear-gradient(90deg, rgba(22, 24, 27, 0.92) 0%, rgba(22, 24, 27, 0.7) 45%, rgba(22, 24, 27, 0.25) 100%),
         url('../images/dream_track.jpg') center 72% / cover no-repeat;
     clip-path: polygon(0 var(--slant), 100% 0, 100% 100%, 0 100%);
     margin-top: calc(var(--slant) * -1);
@@ -323,7 +324,7 @@ h1, h2, h3 {
 .cta-inner p {
     margin: 22px 0 36px;
     max-width: 46ch;
-    color: #D6E3DA;
+    color: #DADDE2;
 }
 
 /* ===== 5. Контакты ===== */
@@ -420,7 +421,7 @@ h1, h2, h3 {
         padding-top: 104px;
         padding-bottom: calc(var(--slant) + 76px);
         background:
-            linear-gradient(180deg, rgba(11, 26, 18, 0.5) 0%, rgba(11, 26, 18, 0.88) 55%, var(--ink) 100%),
+            linear-gradient(180deg, rgba(22, 24, 27, 0.5) 0%, rgba(22, 24, 27, 0.88) 55%, var(--ink) 100%),
             url('../images/hero-bg.jpg') 62% 30% / cover no-repeat;
     }
     .hero-title { font-size: clamp(2rem, 10vw, 2.6rem); }
@@ -452,7 +453,7 @@ h1, h2, h3 {
     /* О себе */
     .about { padding-block: 64px calc(var(--slant) + 64px); }
     .about-grid { gap: 44px; }
-    .about-photo { max-width: 240px; padding: 8px; box-shadow: 10px 10px 0 var(--race); }
+    .about-photo { max-width: 240px; padding: 8px; box-shadow: 10px 10px 0 var(--hivis); }
     .about-text h2 { margin-bottom: 18px; }
     .about-text .about-note { margin-top: 22px; }
 
@@ -478,7 +479,7 @@ h1, h2, h3 {
         left: 0; right: 0; bottom: 0;
         z-index: 20;
         padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-        background: rgba(11, 26, 18, 0.92);
+        background: rgba(22, 24, 27, 0.92);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         border-top: 1px solid var(--line-dark);
