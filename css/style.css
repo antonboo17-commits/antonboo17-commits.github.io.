@@ -287,8 +287,8 @@ h1, h2, h3 {
 }
 .about-photo img { width: 100%; height: auto; }
 
-.about-photo-front { left: 0; top: 4%; transform: rotate(-4deg); z-index: 2; }
-.about-photo-back  { right: 0; bottom: 0; transform: rotate(5deg); z-index: 1; }
+.about-photo-front { right: 0; top: 0; transform: rotate(4deg); z-index: 2; width: 56%; }
+.about-photo-back  { left: 0; bottom: 0; transform: rotate(-4deg); z-index: 1; width: 66%; }
 
 /* Полоска скотча сверху каждой карточки */
 .about-photo::before {
@@ -301,7 +301,7 @@ h1, h2, h3 {
     background: color-mix(in srgb, var(--hivis) 62%, transparent);
     transform: translateX(-50%) rotate(-3deg);
 }
-.about-photo-back::before { left: 44%; transform: translateX(-50%) rotate(4deg); }
+.about-photo-back::before { left: 40%; transform: translateX(-50%) rotate(3deg); }
 
 .about-text { min-width: 0; }
 
