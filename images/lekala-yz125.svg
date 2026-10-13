@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="t d">
+  <title id="t">Чертёж лекал наклеек для yz125</title>
+  <desc id="d">Лекала боковин, номерной таблички и крыла с размерами и линиями реза.</desc>
+  <defs>
+    <pattern id="grid-s" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#D3DDE8" stroke-width="0.6"/>
+    </pattern>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <rect width="50" height="50" fill="url(#grid-s)"/>
+      <path d="M50 0H0V50" fill="none" stroke="#B9C8D8" stroke-width="1"/>
+    </pattern>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <path d="M0 0V8" stroke="#22303F" stroke-width="2.2"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 2L10 5L0 8z" fill="#22303F"/>
+    </marker>
+    <!-- контур боковины -->
+    <path id="shroud" d="M0 0 L176 -8 Q206 -8 214 22 L236 112 Q240 134 218 138 L82 150 Q44 152 30 124 L-6 34 Q-14 6 0 0 Z"/>
+  </defs>
+
+  <rect width="600" height="600" fill="#F2F5F8"/>
+  <rect width="600" height="600" fill="url(#grid)"/>
+
+  <g fill="none" stroke-linejoin="round" font-family="Arial, Helvetica, sans-serif" fill-rule="evenodd">
+
+    <!-- Левая боковина -->
+    <g transform="translate(46 70)">
+      <use href="#shroud" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M36 112 L150 30 L196 26 L80 120 Z" fill="url(#hatch)" opacity="0.55"/>
+      <path d="M104 132 L190 66 L214 64 L130 132 Z" fill="#22303F" opacity="0.85"/>
+      <use href="#shroud" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4" transform="translate(-6 -6) scale(1.05)"/>
+      <text x="58" y="76" font-size="13" fill="#22303F" stroke="none" font-style="italic">боковина L</text>
+    </g>
+
+    <!-- Правая боковина (зеркально) -->
+    <g transform="translate(554 70) scale(-1 1)">
+      <use href="#shroud" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M36 112 L150 30 L196 26 L80 120 Z" fill="url(#hatch)" opacity="0.55"/>
+      <path d="M104 132 L190 66 L214 64 L130 132 Z" fill="#22303F" opacity="0.85"/>
+      <use href="#shroud" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4" transform="translate(-6 -6) scale(1.05)"/>
+    </g>
+    <text x="436" y="146" font-size="13" fill="#22303F" stroke="none" font-style="italic">боковина R</text>
+
+    <!-- Размер ширины боковины -->
+    <g stroke="#22303F" stroke-width="1">
+      <path d="M40 46 V58 M290 46 V58"/>
+      <path d="M44 52 H286" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    </g>
+    <rect x="140" y="43" width="46" height="16" fill="#F2F5F8" stroke="none"/>
+    <text x="163" y="56" font-size="12" text-anchor="middle" fill="#22303F" stroke="none">312</text>
+
+    <!-- Номерная табличка -->
+    <g transform="translate(62 290)">
+      <path d="M8 28 Q8 0 44 0 H150 Q186 0 186 28 L176 150 Q174 176 146 176 H48 Q20 176 18 150 Z" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M2 26 Q2 -6 44 -6 H150 Q192 -6 192 26 L182 152 Q180 182 146 182 H48 Q14 182 12 152 Z" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <text x="97" y="118" font-size="68" font-weight="bold" font-style="italic" text-anchor="middle" fill="none" stroke="#22303F" stroke-width="2">125</text>
+      <path d="M26 150 H168" stroke="#22303F" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="97" y="166" font-size="11" text-anchor="middle" fill="#22303F" stroke="none" font-style="italic">номер</text>
+    </g>
+    <!-- Размер высоты таблички -->
+    <g stroke="#22303F" stroke-width="1">
+      <path d="M262 290 H274 M262 466 H274"/>
+      <path d="M268 294 V462" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    </g>
+    <rect x="258" y="368" width="20" height="24" fill="#F2F5F8" stroke="none"/>
+    <text x="268" y="384" font-size="12" text-anchor="middle" fill="#22303F" stroke="none" transform="rotate(-90 268 380)">178</text>
+
+    <!-- Переднее крыло -->
+    <g transform="translate(320 250)">
+      <path d="M0 40 Q10 4 60 2 L210 0 Q238 2 236 26 Q232 48 204 52 L60 62 Q14 66 0 40 Z" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M40 46 L200 20 L210 30 L56 56 Z" fill="url(#hatch)" opacity="0.55"/>
+      <path d="M-6 40 Q4 -2 60 -4 L210 -6 Q244 -4 242 26 Q238 54 204 58 L60 68 Q8 72 -6 40 Z" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <text x="96" y="92" font-size="13" fill="#22303F" stroke="none" font-style="italic">переднее крыло</text>
+    </g>
+
+    <!-- Крышка фильтра -->
+    <g transform="translate(330 360)">
+      <path d="M0 10 Q0 0 12 0 H96 Q112 0 110 16 L100 86 Q98 98 86 98 H14 Q2 98 2 86 Z" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M14 76 L80 14 L96 14 L30 76 Z" fill="#22303F" opacity="0.85"/>
+      <path d="M-6 10 Q-6 -6 12 -6 H96 Q118 -6 116 16 L106 88 Q104 104 86 104 H14 Q-4 104 -4 88 Z" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <text x="56" y="124" font-size="12" text-anchor="middle" fill="#22303F" stroke="none" font-style="italic">фильтр</text>
+    </g>
+
+    <!-- Наклейка на маятник -->
+    <g transform="translate(466 372)">
+      <path d="M0 0 H82 L72 36 H-6 Z" fill="#FFFFFF" stroke="#22303F" stroke-width="2"/>
+      <path d="M6 28 L24 8 H70 L52 28 Z" fill="url(#hatch)" opacity="0.55"/>
+      <path d="M-5 -5 H89 L77 41 H-13 Z" stroke="#E5007E" stroke-width="1.2" stroke-dasharray="7 4"/>
+      <text x="38" y="60" font-size="12" text-anchor="middle" fill="#22303F" stroke="none" font-style="italic">маятник</text>
+    </g>
+
+    <!-- Штамп -->
+    <g transform="translate(330 494)" stroke="#22303F" stroke-width="1.6">
+      <rect width="240" height="76" fill="#FFFFFF"/>
+      <path d="M0 30 H240 M0 54 H240 M150 30 V76"/>
+      <text x="12" y="22" font-size="15" font-weight="bold" fill="#22303F" stroke="none">YZ125 · лекала кита</text>
+      <text x="12" y="47" font-size="11" fill="#22303F" stroke="none">SMGRAPHICS</text>
+      <text x="162" y="47" font-size="11" fill="#22303F" stroke="none">М 1:5</text>
+      <text x="12" y="70" font-size="11" fill="#22303F" stroke="none">рез: плоттер</text>
+      <text x="162" y="70" font-size="11" fill="#22303F" stroke="none">лист 1</text>
+    </g>
+
+    <!-- Легенда линий -->
+    <g transform="translate(36 524)">
+      <path d="M0 6 H34" stroke="#E5007E" stroke-width="1.4" stroke-dasharray="7 4"/>
+      <text x="44" y="10" font-size="11" fill="#22303F" stroke="none">линия реза</text>
+      <path d="M0 28 H34" stroke="#22303F" stroke-width="2"/>
+      <text x="44" y="32" font-size="11" fill="#22303F" stroke="none">контур детали</text>
+    </g>
+  </g>
+</svg>

@@ -264,22 +264,44 @@ h1, h2, h3 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-    gap: clamp(40px, 7vw, 88px);
+    grid-template-columns: 420px minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 80px);
     align-items: center;
 }
 
-/* Фото как наклейка: белая кромка, лёгкий поворот, жёсткая цветная тень */
-.about-photo {
-    background: #FFFFFF;
-    padding: 10px;
-    transform: rotate(-3deg);
-    box-shadow: 12px 12px 0 var(--hivis);
+/* Две распечатанные карточки, приклеенные скотчем: фото и чертёж лекал */
+.about-cards {
+    position: relative;
     width: 100%;
-    max-width: 300px;
+    max-width: 420px;
+    aspect-ratio: 1 / 0.92;
     justify-self: center;
 }
+
+.about-photo {
+    position: absolute;
+    width: 63%;
+    background: #FFFFFF;
+    padding: 9px;
+    box-shadow: 0 1px 2px rgba(22, 24, 27, 0.12), 0 10px 24px rgba(22, 24, 27, 0.16);
+}
 .about-photo img { width: 100%; height: auto; }
+
+.about-photo-front { left: 0; top: 4%; transform: rotate(-4deg); z-index: 2; }
+.about-photo-back  { right: 0; bottom: 0; transform: rotate(5deg); z-index: 1; }
+
+/* Полоска скотча сверху каждой карточки */
+.about-photo::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 38%;
+    height: 24px;
+    background: color-mix(in srgb, var(--hivis) 62%, transparent);
+    transform: translateX(-50%) rotate(-3deg);
+}
+.about-photo-back::before { left: 44%; transform: translateX(-50%) rotate(4deg); }
 
 .about-text { min-width: 0; }
 
@@ -398,7 +420,7 @@ h1, h2, h3 {
     .offer-list li:first-child { border-top: 0; padding-top: 0; }
 
     .about-grid { grid-template-columns: minmax(0, 1fr); }
-    .about-photo { max-width: 260px; }
+    .about-cards { max-width: 380px; }
 }
 
 /* Нижняя панель «Написать» — только на телефонах */
@@ -458,7 +480,9 @@ h1, h2, h3 {
     /* О себе */
     .about { padding-block: 64px calc(var(--slant) + 64px); }
     .about-grid { gap: 44px; }
-    .about-photo { max-width: 200px; padding: 7px; box-shadow: 8px 8px 0 var(--hivis); }
+    .about-cards { max-width: 330px; }
+    .about-photo { padding: 6px; }
+    .about-photo::before { height: 18px; top: -9px; }
     .about-text h2 { margin-bottom: 18px; }
     .about-text .about-note { margin-top: 22px; }
 
