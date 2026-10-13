@@ -43,6 +43,7 @@ h1, h2, h3 {
     font-family: var(--font-display);
     line-height: 1.05;
     text-wrap: balance;
+    overflow-wrap: break-word;
 }
 
 .container {
@@ -263,22 +264,22 @@ h1, h2, h3 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: clamp(40px, 7vw, 96px);
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: clamp(40px, 7vw, 88px);
     align-items: center;
 }
 
-/* Фото как наклейка: белая кромка, лёгкий поворот, жёсткая синяя тень */
+/* Фото как наклейка: белая кромка, лёгкий поворот, жёсткая цветная тень */
 .about-photo {
     background: #FFFFFF;
-    padding: 12px;
+    padding: 10px;
     transform: rotate(-3deg);
-    box-shadow: 16px 16px 0 var(--hivis);
-    max-width: 420px;
+    box-shadow: 12px 12px 0 var(--hivis);
     width: 100%;
+    max-width: 300px;
     justify-self: center;
 }
-.about-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.about-photo img { width: 100%; height: auto; }
 
 .about-text { min-width: 0; }
 
@@ -397,7 +398,7 @@ h1, h2, h3 {
     .offer-list li:first-child { border-top: 0; padding-top: 0; }
 
     .about-grid { grid-template-columns: minmax(0, 1fr); }
-    .about-photo { max-width: 320px; }
+    .about-photo { max-width: 260px; }
 }
 
 /* Нижняя панель «Написать» — только на телефонах */
@@ -424,7 +425,11 @@ h1, h2, h3 {
             linear-gradient(180deg, rgba(22, 24, 27, 0.5) 0%, rgba(22, 24, 27, 0.88) 55%, var(--ink) 100%),
             url('../images/hero-bg.jpg') 62% 30% / cover no-repeat;
     }
-    .hero-title { font-size: clamp(2rem, 10vw, 2.6rem); }
+    /* Unbounded очень широкий: самое длинное слово «мотоциклов» должно влезать в экран */
+    .hero-title { font-size: clamp(1.45rem, 7.4vw, 2.4rem); letter-spacing: -0.01em; }
+    .cta-inner h2 { font-size: clamp(1.45rem, 7.4vw, 2.4rem); }
+    .about-text h2, .contact h2 { font-size: clamp(1.4rem, 6.6vw, 2rem); }
+    .offer-list h3 { font-size: 16px; }
     .hero-sub { margin-top: 20px; }
     .hero-actions { margin-top: 30px; flex-direction: column; align-items: stretch; gap: 14px; }
     .hero-actions .btn { text-align: center; }
@@ -453,7 +458,7 @@ h1, h2, h3 {
     /* О себе */
     .about { padding-block: 64px calc(var(--slant) + 64px); }
     .about-grid { gap: 44px; }
-    .about-photo { max-width: 240px; padding: 8px; box-shadow: 10px 10px 0 var(--hivis); }
+    .about-photo { max-width: 200px; padding: 7px; box-shadow: 8px 8px 0 var(--hivis); }
     .about-text h2 { margin-bottom: 18px; }
     .about-text .about-note { margin-top: 22px; }
 
